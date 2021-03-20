@@ -1,0 +1,5 @@
+library(RJDBC)
+drv <- JDBC("oracle.jdbc.driver.OracleDriver", "C:\\oraclexe\\app\\oracle\\product\\10.2.0\\server\\jdbc\\lib\\ojdbc14.jar")
+conn <- dbConnect(drv,"jdbc:oracle:thin:@localhost:1521:xe","hr","hr")
+sqldata<-dbGetQuery(conn, "select * from employees")
+summary(sqldata)
