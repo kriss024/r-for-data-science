@@ -52,10 +52,33 @@ writer_names_df2 <- data.frame(a = seq(1,16,by=2), b = LETTERS[1:8], x= month.ab
 
 Age.At.Death <- NULL
 writers_df$Location <- c("Belgium", "United Kingdom", "United States", "United Kingdom")
- 
 
 library(taRifx)
 sorted_data <- sort(writers_df, decreasing=TRUE, ~Age.At.Death)
 
+library(dplyr) 
 
+food <- factor(c("low", "high", "medium", "high", "low", "medium", "high"))
+levels(food)
+print(is.factor(food))
+nlevels(food)
 
+print("Unordered Factors:") 
+food <- factor(food, levels = c("low", "medium", "high"))
+levels(food)
+
+print("Ordered factors")
+food <- factor(food, levels = c("low", "medium", "high"), ordered = TRUE, exclude = NULL)
+levels(food)
+print(is.ordered(food))
+
+min(food)
+max(food)
+
+print("Converting factors")
+num<-as.numeric(food)
+print(food)
+print(num)
+
+print("Using factors")
+dat <- read.csv(file = 'data/sample.csv', stringsAsFactors = TRUE)
