@@ -1,6 +1,6 @@
 rm(list = ls())
 
-install.packages("devtools"")
+install.packages("devtools")
 
 install.packages("caret")
 install.packages("e1071")
